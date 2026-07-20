@@ -28,15 +28,8 @@ const Transactions = () => {
 
   return (
     <div className="page">
-      <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '28px 20px' }}>
-        <div style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          marginBottom: '24px',
-          flexWrap: 'wrap',
-          gap: '12px'
-        }}>
+      <div className="page-wrap">
+        <div className="tx-header">
           <div>
             <button className="btn btn-ghost btn-sm" style={{ marginBottom: '10px' }} onClick={() => navigate('/dashboard')}>
               ← Back to Dashboard
@@ -51,12 +44,7 @@ const Transactions = () => {
           <button className="btn btn-success btn-sm" onClick={() => navigate('/add-funds')}>+ Add Funds</button>
         </div>
 
-        <div style={{
-          display: 'flex',
-          gap: '8px',
-          flexWrap: 'wrap',
-          marginBottom: '20px'
-        }}>
+        <div className="filter-bar">
           {['all', 'credit', 'debit', 'invest', 'course'].map((f) => (
             <button
               key={f}

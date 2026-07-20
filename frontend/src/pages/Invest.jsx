@@ -45,7 +45,7 @@ const Invest = () => {
 
   return (
     <div className="page">
-      <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '28px 20px' }}>
+      <div className="page-wrap">
         <button className="btn btn-ghost btn-sm" style={{ marginBottom: '20px' }} onClick={() => navigate('/dashboard')}>
           ← Back
         </button>
@@ -56,17 +56,7 @@ const Invest = () => {
           Choose from curated investment options for every risk appetite
         </p>
 
-        <div style={{
-          display: 'flex',
-          gap: '2px',
-          background: 'var(--bg3)',
-          border: '1px solid var(--glass-border)',
-          borderRadius: '3px',
-          padding: '4px',
-          width: 'fit-content',
-          marginBottom: '24px',
-          flexWrap: 'wrap'
-        }}>
+        <div className="filter-tabs">
           {['all', 'equity', 'mf', 'crypto', 'fd'].map((f) => (
             <button
               key={f}
@@ -95,34 +85,13 @@ const Invest = () => {
           {filtered.map((option) => (
             <div
               key={option.id}
-              className="invest-card"
-              style={{
-                background: 'var(--bg3)',
-                border: selectedOption?.id === option.id ? '1px solid var(--blue)' : '1px solid var(--glass-border)',
-                borderRadius: '6px',
-                padding: '20px',
-                cursor: 'pointer',
-                transition: 'all .25s',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '16px'
-              }}
+              className={`invest-card${selectedOption?.id === option.id ? ' selected' : ''}`}
               onClick={() => setSelectedOption(option)}
             >
-              <div style={{
-                width: '48px',
-                height: '48px',
-                background: 'rgba(0,157,255,.1)',
-                borderRadius: '4px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontSize: '22px',
-                flexShrink: 0
-              }}>
+              <div className="invest-card-icon">
                 {option.icon}
               </div>
-              <div style={{ flex: 1 }}>
+              <div className="invest-card-body">
                 <div style={{ fontFamily: 'var(--font-head)', fontSize: '15px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.04em' }}>
                   {option.name}
                 </div>
@@ -133,7 +102,7 @@ const Invest = () => {
                   Risk: <span style={{ color: getRiskColor(option.risk) }}>{option.risk}</span>
                 </div>
               </div>
-              <div style={{ fontFamily: 'var(--font-head)', fontSize: '16px', fontWeight: 700, color: 'var(--green)', marginLeft: 'auto', textAlign: 'right', flexShrink: 0 }}>
+              <div className="invest-card-return">
                 {option.returnPct}
                 <span style={{ fontSize: '10px', color: 'var(--text-muted)', display: 'block', marginTop: '2px' }}>Expected</span>
               </div>

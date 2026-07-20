@@ -28,7 +28,7 @@ const AddFunds = () => {
 
   return (
     <div className="page">
-      <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '28px 20px' }}>
+      <div className="page-wrap">
         <button className="btn btn-ghost btn-sm" style={{ marginBottom: '20px' }} onClick={() => navigate('/dashboard')}>
           ← Back
         </button>

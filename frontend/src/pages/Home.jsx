@@ -136,7 +136,7 @@ const Home = ({ onOpenModal }) => {
             }}>
               Access stocks, crypto, commodities & derivatives on one powerful platform. Advanced charts, real-time data, and AI-powered insights.
             </p>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
+            <div className="hero-buttons">
               <button className="btn btn-primary" onClick={() => onOpenModal('register')}>Start Trading Free</button>
               <button className="btn btn-ghost">Explore Features</button>
             </div>
@@ -177,12 +177,7 @@ const Home = ({ onOpenModal }) => {
                 </div>
                 <div style={{ fontSize: '12px', color: 'var(--text-muted)', fontFamily: 'var(--font-cond)' }}>Today +₹24,180</div>
               </div>
-              <div style={{
-                display: 'grid',
-                gridTemplateColumns: '1fr 1fr',
-                gap: '8px',
-                marginTop: '10px'
-              }}>
+              <div className="hero-card-grid">
                 <div style={{ background: 'rgba(0,157,255,.05)', border: '1px solid rgba(0,157,255,.12)', borderRadius: '4px', padding: '12px' }}>
                   <div style={{ fontFamily: 'var(--font-head)', fontSize: '17px', fontWeight: 600, color: 'var(--green)' }}>+₹58,240</div>
                   <div style={{ fontSize: '10px', color: 'var(--text-muted)', letterSpacing: '.07em', textTransform: 'uppercase', marginTop: '2px' }}>Monthly P&L</div>
@@ -216,16 +211,7 @@ const Home = ({ onOpenModal }) => {
             <div className="s-tag">Live Markets</div>
             <h2 className="s-title">Market Overview</h2>
           </div>
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
-            gap: '1px',
-            background: 'var(--glass-border)',
-            border: '1px solid var(--glass-border)',
-            borderRadius: '4px',
-            overflow: 'hidden',
-            marginBottom: '24px'
-          }}>
+          <div className="market-grid">
             {mktData.map((m, i) => (
               <div key={i} className="market-cell">
                 <div style={{ fontFamily: 'var(--font-head)', fontSize: '16px', fontWeight: 700, letterSpacing: '.04em' }}>{m.sym}</div>
@@ -248,12 +234,7 @@ const Home = ({ onOpenModal }) => {
             <h2 className="s-title" style={{ textAlign: 'center' }}>Everything You Need</h2>
             <p className="s-sub" style={{ margin: '0 auto', textAlign: 'center' }}>Professional-grade tools for every type of trader, from beginner to institutional.</p>
           </div>
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-            gap: '1px',
-            background: 'var(--glass-border)'
-          }}>
+          <div className="features-grid">
             {features.map((f, i) => (
               <div key={i} className="feature-card">
                 <div style={{
@@ -286,11 +267,7 @@ const Home = ({ onOpenModal }) => {
             <h2 className="s-title" style={{ textAlign: 'center' }}>Master The Markets</h2>
             <p className="s-sub" style={{ margin: '0 auto', textAlign: 'center' }}>Structured courses from professional fund managers. Learn at your pace and earn certificates.</p>
           </div>
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(270px, 1fr))',
-            gap: '22px'
-          }}>
+          <div className="courses-grid">
             {courses.slice(0, 3).map((c) => (
               <div key={c.id} className="course-card" style={{
                 background: 'var(--bg2)',
@@ -349,12 +326,7 @@ const Home = ({ onOpenModal }) => {
             <h2 className="s-title" style={{ textAlign: 'center' }}>Choose Your Plan</h2>
             <p className="s-sub" style={{ margin: '0 auto', textAlign: 'center' }}>Unlock premium features, advanced analytics and priority support with our flexible plans.</p>
           </div>
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-            gap: '24px',
-            marginTop: '16px'
-          }}>
+          <div className="plans-grid">
             {plans.map((p, i) => (
               <div key={i} className="plan-card" style={{
                 background: 'var(--bg2)',
@@ -443,7 +415,7 @@ const Home = ({ onOpenModal }) => {
               </ul>
             </div>
           </div>
-          <div style={{ borderTop: '1px solid rgba(255,255,255,.04)', paddingTop: '28px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '14px' }}>
+          <div className="footer-bottom">
             <div style={{ fontSize: '11px', color: 'var(--text-muted)' }}>© 2025 NEXORA Technologies Pvt. Ltd. All rights reserved. SEBI Reg: INZ000000000</div>
           </div>
         </div>

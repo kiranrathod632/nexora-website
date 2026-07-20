@@ -15,7 +15,7 @@ const Profile = () => {
 
   return (
     <div className="page">
-      <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '28px 20px' }}>
+      <div className="page-wrap">
         <button className="btn btn-ghost btn-sm" style={{ marginBottom: '20px' }} onClick={() => navigate('/dashboard')}>
           ← Back
         </button>
@@ -74,12 +74,7 @@ const Profile = () => {
             }}>
               ✅ KYC Verified
             </div>
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: '1fr 1fr',
-              gap: '8px',
-              marginTop: '24px'
-            }}>
+            <div className="profile-mini-stats">
               <div style={{
                 background: 'var(--bg2)',
                 border: '1px solid var(--glass-border)',
@@ -111,6 +106,7 @@ const Profile = () => {
             <h3 style={{ fontFamily: 'var(--font-head)', fontSize: '20px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.05em', marginBottom: '24px', color: 'var(--blue)' }}>
               Account Details
             </h3>
+            <div className="profile-table-wrap">
             <table style={{ width: '100%', borderCollapse: 'collapse' }}>
               <tbody>
                 <tr>
@@ -143,7 +139,8 @@ const Profile = () => {
                 </tr>
               </tbody>
             </table>
-            <div style={{ display: 'flex', gap: '10px', marginTop: '24px', flexWrap: 'wrap' }}>
+            </div>
+            <div className="profile-actions">
               <button className="btn btn-primary btn-sm">Edit Profile</button>
               <button className="btn btn-ghost btn-sm">Change Password</button>
               <button className="btn btn-danger btn-sm" onClick={handleLogout}>Sign Out</button>

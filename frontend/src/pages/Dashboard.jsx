@@ -76,8 +76,8 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <div style={{ background: 'var(--bg2)', minHeight: 'calc(100vh - 62px)', padding: '24px 20px' }}>
-      <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
+    <div className="dashboard-page">
+      <div className="page-wrap">
         <div className="page-header">
           <div>
             <div style={{ fontFamily: 'var(--font-head)', fontSize: '26px', fontWeight: 700, textTransform: 'uppercase' }}>
@@ -132,17 +132,7 @@ const Dashboard = () => {
           <div>
             {/* Chart */}
             <div className="glass-card" style={{ marginBottom: '20px' }}>
-              <div style={{
-                fontFamily: 'var(--font-head)',
-                fontSize: '14px',
-                fontWeight: 700,
-                textTransform: 'uppercase',
-                letterSpacing: '.08em',
-                marginBottom: '16px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between'
-              }}>
+              <div className="chart-header">
                 Portfolio Performance
                 <div className="chart-period-btns" style={{
                   display: 'flex',
@@ -232,7 +222,7 @@ const Dashboard = () => {
                 <div style={{ fontFamily: 'var(--font-head)', fontSize: '32px', fontWeight: 700, color: 'var(--blue)' }}>₹{balance.toLocaleString('en-IN')}</div>
                 <div style={{ fontSize: '12px', color: 'var(--text-muted)', marginTop: '6px' }}>Last funded: Today, 09:14 AM</div>
               </div>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
+              <div className="grid-2-col">
                 <button className="btn btn-primary btn-sm" style={{ width: '100%' }} onClick={() => navigate('/add-funds')}>+ Add Funds</button>
                 <button className="btn btn-ghost btn-sm" style={{ width: '100%' }} onClick={() => navigate('/transactions')}>History</button>
               </div>
@@ -241,7 +231,7 @@ const Dashboard = () => {
             {/* Quick Actions */}
             <div className="glass-card">
               <div style={{ fontFamily: 'var(--font-head)', fontSize: '14px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.08em', marginBottom: '16px' }}>Quick Actions</div>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
+              <div className="grid-2-col">
                 {[
                   { icon: '📈', label: 'Invest', path: '/invest' },
                   { icon: '🎓', label: 'Academy', path: '/academy' },

@@ -24,7 +24,7 @@ const Academy = () => {
 
   return (
     <div className="page">
-      <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '28px 20px' }}>
+      <div className="page-wrap">
         <button className="btn btn-ghost btn-sm" style={{ marginBottom: '20px' }} onClick={() => navigate('/dashboard')}>
           ← Back
         </button>
@@ -35,11 +35,7 @@ const Academy = () => {
           Buy and access premium trading courses
         </p>
 
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(270px, 1fr))',
-          gap: '22px'
-        }}>
+        <div className="courses-grid">
           {allCourses.map((c) => {
             const owned = enrolledCourses.includes(c.id);
             return (
@@ -100,12 +96,7 @@ const Academy = () => {
                     <span>⏱ {c.hours}h</span>
                     <span>🎓 Certificate</span>
                   </div>
-                  <div style={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                    marginTop: '14px'
-                  }}>
+                  <div className="course-card-footer">
                     <div style={{ fontFamily: 'var(--font-head)', fontSize: '20px', fontWeight: 700, color: 'var(--blue)' }}>
                       {owned ? (
                         <span style={{ color: 'var(--green)', fontSize: '16px' }}>✓ Enrolled</span>
