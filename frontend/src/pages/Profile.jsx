@@ -23,12 +23,7 @@ const Profile = () => {
           My Profile
         </h2>
 
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: '300px 1fr',
-          gap: '28px',
-          alignItems: 'start'
-        }}>
+        <div className="profile-grid">
           <div className="glass-card" style={{ padding: '28px', textAlign: 'center' }}>
             <div style={{
               width: '80px',

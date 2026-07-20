@@ -90,31 +90,13 @@ const Home = ({ onOpenModal }) => {
   return (
     <div>
       {/* Hero */}
-      <section style={{
-        minHeight: 'calc(100vh - 90px)',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        position: 'relative',
-        overflow: 'hidden',
-        padding: '80px 20px 60px'
-      }}>
+      <section className="hero-section">
         <div style={{
           position: 'absolute',
           inset: 0,
           background: 'radial-gradient(ellipse 90% 70% at 50% 30%, rgba(0,157,255,.07), transparent 70%)'
         }} />
-        <div style={{
-          maxWidth: '1400px',
-          margin: '0 auto',
-          width: '100%',
-          display: 'grid',
-          gridTemplateColumns: '1fr 1fr',
-          gap: '80px',
-          alignItems: 'center',
-          position: 'relative',
-          zIndex: 1
-        }}>
+        <div className="hero-grid">
           <div>
             <div style={{
               display: 'inline-flex',
@@ -158,13 +140,7 @@ const Home = ({ onOpenModal }) => {
               <button className="btn btn-primary" onClick={() => onOpenModal('register')}>Start Trading Free</button>
               <button className="btn btn-ghost">Explore Features</button>
             </div>
-            <div style={{
-              display: 'flex',
-              gap: '36px',
-              marginTop: '44px',
-              paddingTop: '36px',
-              borderTop: '1px solid rgba(255,255,255,.06)'
-            }}>
+            <div className="hero-stats">
               <div><span style={{ fontFamily: 'var(--font-head)', fontSize: '26px', fontWeight: 700, display: 'block' }}>2.4M+</span><span style={{ fontSize: '11px', color: 'var(--text-muted)', letterSpacing: '.1em', textTransform: 'uppercase' }}>Active Traders</span></div>
               <div><span style={{ fontFamily: 'var(--font-head)', fontSize: '26px', fontWeight: 700, display: 'block' }}>₹840Cr+</span><span style={{ fontSize: '11px', color: 'var(--text-muted)', letterSpacing: '.1em', textTransform: 'uppercase' }}>Daily Volume</span></div>
               <div><span style={{ fontFamily: 'var(--font-head)', fontSize: '26px', fontWeight: 700, display: 'block' }}>99.97%</span><span style={{ fontSize: '11px', color: 'var(--text-muted)', letterSpacing: '.1em', textTransform: 'uppercase' }}>Uptime</span></div>
@@ -251,7 +227,7 @@ const Home = ({ onOpenModal }) => {
             marginBottom: '24px'
           }}>
             {mktData.map((m, i) => (
-              <div key={i} style={{ background: 'var(--bg2)', padding: '18px 22px', cursor: 'pointer', transition: 'background .2s' }}>
+              <div key={i} className="market-cell">
                 <div style={{ fontFamily: 'var(--font-head)', fontSize: '16px', fontWeight: 700, letterSpacing: '.04em' }}>{m.sym}</div>
                 <div style={{ fontSize: '11px', color: 'var(--text-muted)', margin: '2px 0 10px', fontFamily: 'var(--font-cond)' }}>{m.name}</div>
                 <div style={{ fontFamily: 'var(--font-cond)', fontSize: '15px', fontWeight: 600 }}>{m.price}</div>
@@ -279,13 +255,7 @@ const Home = ({ onOpenModal }) => {
             background: 'var(--glass-border)'
           }}>
             {features.map((f, i) => (
-              <div key={i} style={{
-                background: 'var(--bg)',
-                padding: '38px',
-                position: 'relative',
-                overflow: 'hidden',
-                transition: 'background .3s'
-              }}>
+              <div key={i} className="feature-card">
                 <div style={{
                   width: '50px',
                   height: '50px',
@@ -322,7 +292,7 @@ const Home = ({ onOpenModal }) => {
             gap: '22px'
           }}>
             {courses.slice(0, 3).map((c) => (
-              <div key={c.id} style={{
+              <div key={c.id} className="course-card" style={{
                 background: 'var(--bg2)',
                 border: '1px solid var(--glass-border)',
                 borderRadius: '6px',
@@ -386,7 +356,7 @@ const Home = ({ onOpenModal }) => {
             marginTop: '16px'
           }}>
             {plans.map((p, i) => (
-              <div key={i} style={{
+              <div key={i} className="plan-card" style={{
                 background: 'var(--bg2)',
                 border: `1px solid ${p.badge ? 'var(--blue)' : 'var(--glass-border)'}`,
                 borderRadius: '8px',
@@ -426,18 +396,12 @@ const Home = ({ onOpenModal }) => {
       </section>
 
       {/* CTA */}
-      <section style={{
-        background: 'linear-gradient(135deg,rgba(0,157,255,.08),rgba(0,191,255,.03))',
-        borderTop: '1px solid var(--glass-border)',
-        borderBottom: '1px solid var(--glass-border)',
-        padding: '100px 20px',
-        textAlign: 'center'
-      }}>
+      <section className="cta-section">
         <div className="s-inner">
           <div className="s-tag" style={{ justifyContent: 'center', display: 'flex' }}>Get Started Today</div>
           <h2 className="s-title" style={{ textAlign: 'center', fontSize: 'clamp(36px,5vw,72px)', textShadow: '0 0 20px rgba(0,157,255,.5)' }}>Build Your Next Era</h2>
           <p style={{ color: 'var(--silver)', fontSize: '16px', margin: '16px 0 40px' }}>Join 2.4 million traders who trust NEXORA with their financial future.</p>
-          <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
+          <div className="cta-buttons">
             <button className="btn btn-primary" onClick={() => onOpenModal('register')} style={{ padding: '14px 36px', fontSize: '15px' }}>Open Free Account</button>
             <button className="btn btn-ghost" style={{ padding: '14px 36px', fontSize: '15px' }}>Explore Academy</button>
           </div>
@@ -451,12 +415,7 @@ const Home = ({ onOpenModal }) => {
         padding: '60px 20px 30px'
       }}>
         <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: '2fr 1fr 1fr 1fr',
-            gap: '50px',
-            marginBottom: '50px'
-          }}>
+          <div className="footer-grid">
             <div>
               <p style={{ fontSize: '13px', color: 'var(--text-muted)', lineHeight: 1.7, maxWidth: '280px' }}>
                 NEXORA is a SEBI-registered stockbroker. Invest in stocks, mutual funds, F&O, crypto and more — all on one platform. Build the next era of your wealth.

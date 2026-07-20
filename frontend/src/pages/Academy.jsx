@@ -43,7 +43,7 @@ const Academy = () => {
           {allCourses.map((c) => {
             const owned = enrolledCourses.includes(c.id);
             return (
-              <div key={c.id} style={{
+              <div key={c.id} className="course-card" style={{
                 background: 'var(--bg2)',
                 border: '1px solid var(--glass-border)',
                 borderRadius: '6px',

@@ -48,15 +48,7 @@ const TickerBar = () => {
         animation: 'scroll 50s linear infinite'
       }}>
         {[...items, ...items].map((item, idx) => (
-          <span key={idx} style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '8px',
-            padding: '0 28px',
-            fontFamily: 'var(--font-cond)',
-            fontSize: '13px',
-            letterSpacing: '.04em'
-          }}>
+          <span key={idx} className="ticker-item">
             <span style={{ color: '#fff', fontWeight: 700 }}>{item.sym}</span>
             <span style={{ color: 'var(--silver)' }}>{item.price}</span>
             <span style={{ color: item.up ? 'var(--green)' : 'var(--red)' }}>{item.chg}</span>

@@ -78,14 +78,7 @@ const Dashboard = () => {
   return (
     <div style={{ background: 'var(--bg2)', minHeight: 'calc(100vh - 62px)', padding: '24px 20px' }}>
       <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
-        <div style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          marginBottom: '28px',
-          flexWrap: 'wrap',
-          gap: '16px'
-        }}>
+        <div className="page-header">
           <div>
             <div style={{ fontFamily: 'var(--font-head)', fontSize: '26px', fontWeight: 700, textTransform: 'uppercase' }}>
               Hello, <span style={{ color: 'var(--blue)' }}>{user.name || 'Trader'}</span> 👋
@@ -94,7 +87,7 @@ const Dashboard = () => {
               {new Date().toLocaleDateString('en-IN', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
             </div>
           </div>
-          <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+          <div className="page-header-actions">
             <button className="btn btn-ghost btn-sm" onClick={() => navigate('/transactions')}>📋 Transactions</button>
             <button className="btn btn-success btn-sm" onClick={() => navigate('/add-funds')}>+ Add Funds</button>
             <button className="btn btn-primary btn-sm" onClick={() => navigate('/invest')}>📈 Invest</button>
@@ -102,12 +95,7 @@ const Dashboard = () => {
         </div>
 
         {/* Stats */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(4, 1fr)',
-          gap: '16px',
-          marginBottom: '24px'
-        }}>
+        <div className="dashboard-stats">
           <div className="glass-card" style={{
             padding: '20px',
             borderLeft: '3px solid var(--green)'
@@ -140,12 +128,7 @@ const Dashboard = () => {
         </div>
 
         {/* Main Grid */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: '2fr 1fr',
-          gap: '20px',
-          marginBottom: '24px'
-        }}>
+        <div className="dashboard-main">
           <div>
             {/* Chart */}
             <div className="glass-card" style={{ marginBottom: '20px' }}>
@@ -161,7 +144,7 @@ const Dashboard = () => {
                 justifyContent: 'space-between'
               }}>
                 Portfolio Performance
-                <div style={{
+                <div className="chart-period-btns" style={{
                   display: 'flex',
                   gap: '2px',
                   background: 'var(--bg3)',
@@ -196,6 +179,7 @@ const Dashboard = () => {
               }}>
                 Holdings <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>6 Stocks</span>
               </div>
+              <div className="holdings-table-scroll">
               <table style={{ width: '100%', borderCollapse: 'collapse' }}>
                 <thead>
                   <tr>
@@ -227,6 +211,7 @@ const Dashboard = () => {
                   })}
                 </tbody>
               </table>
+              </div>
             </div>
           </div>
 

@@ -91,14 +91,11 @@ const Invest = () => {
           ))}
         </div>
 
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: '1fr 1fr',
-          gap: '28px'
-        }}>
+        <div className="invest-grid">
           {filtered.map((option) => (
             <div
               key={option.id}
+              className="invest-card"
               style={{
                 background: 'var(--bg3)',
                 border: selectedOption?.id === option.id ? '1px solid var(--blue)' : '1px solid var(--glass-border)',
@@ -165,12 +162,7 @@ const Invest = () => {
               </div>
               <div className="form-grp">
                 <label>Investment Amount (₹)</label>
-                <div style={{
-                  display: 'grid',
-                  gridTemplateColumns: 'repeat(3, 1fr)',
-                  gap: '8px',
-                  marginBottom: '12px'
-                }}>
+                <div className="quick-amounts-grid" style={{ marginBottom: '12px' }}>
                   {[5000, 10000, 25000, 50000, 100000, 500000].map((amt) => (
                     <button
                       key={amt}

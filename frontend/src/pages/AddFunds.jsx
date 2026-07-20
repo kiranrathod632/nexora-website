@@ -39,23 +39,13 @@ const AddFunds = () => {
           Add money to your NEXORA wallet securely
         </p>
 
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: '1fr 1fr',
-          gap: '28px',
-          alignItems: 'start'
-        }}>
+        <div className="page-grid-2">
           <div>
             <div className="glass-card" style={{ padding: '30px' }}>
               <h3 style={{ fontFamily: 'var(--font-head)', fontSize: '20px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.05em', marginBottom: '24px', color: 'var(--blue)' }}>
                 Enter Amount
               </h3>
-              <div style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(3, 1fr)',
-                gap: '8px',
-                marginBottom: '12px'
-              }}>
+              <div className="quick-amounts-grid">
                 {quickAmounts.map((amt) => (
                   <button
                     key={amt}
@@ -93,12 +83,7 @@ const AddFunds = () => {
               </div>
               <div className="form-grp">
                 <label>Payment Method</label>
-                <div style={{
-                  display: 'grid',
-                  gridTemplateColumns: '1fr 1fr',
-                  gap: '10px',
-                  marginBottom: '8px'
-                }}>
+                <div className="payment-methods-grid">
                   {['upi', 'netbanking', 'card', 'neft'].map((m) => (
                     <button
                       key={m}
