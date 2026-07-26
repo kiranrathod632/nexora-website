@@ -137,6 +137,13 @@ body {
   padding: 90px 20px;
 }
 
+#founders,
+#plans,
+#features,
+#academy {
+  scroll-margin-top: 90px;
+}
+
 .s-inner {
   max-width: 1400px;
   margin: 0 auto;
@@ -455,6 +462,151 @@ body {
   grid-template-columns: 2fr 1fr 1fr 1fr;
   gap: 50px;
   margin-bottom: 50px;
+}
+
+.founders-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.founders-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 55% 50% at 20% 40%, rgba(0, 157, 255, 0.07), transparent 70%),
+    radial-gradient(ellipse 45% 45% at 85% 60%, rgba(0, 191, 255, 0.05), transparent 70%);
+  pointer-events: none;
+}
+
+.founders-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+  margin-top: 48px;
+  position: relative;
+  z-index: 1;
+}
+
+.founder-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 22px;
+  padding: 36px 32px;
+  background:
+    linear-gradient(160deg, rgba(0, 157, 255, 0.08) 0%, rgba(8, 8, 15, 0.95) 42%, var(--bg2) 100%);
+  border: 1px solid var(--glass-border);
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.35s ease, transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.founder-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--blue), var(--neon), transparent);
+  opacity: 0.7;
+  transition: opacity 0.35s ease;
+}
+
+.founder-card:hover {
+  border-color: rgba(0, 157, 255, 0.4);
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(0, 157, 255, 0.12);
+}
+
+.founder-card:hover::before {
+  opacity: 1;
+}
+
+.founder-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-head);
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #fff;
+  background:
+    linear-gradient(145deg, rgba(0, 157, 255, 0.95), rgba(0, 100, 180, 0.85));
+  border: 1px solid rgba(0, 191, 255, 0.35);
+  box-shadow:
+    0 0 0 6px rgba(0, 157, 255, 0.08),
+    0 10px 28px rgba(0, 157, 255, 0.2);
+  flex-shrink: 0;
+}
+
+.founder-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.founder-name {
+  font-family: var(--font-head);
+  font-size: clamp(22px, 2.4vw, 28px);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: 1.15;
+  margin: 0;
+}
+
+.founder-role {
+  font-family: var(--font-cond);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+
+.founder-bio {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.7;
+  max-width: 360px;
+  margin: 4px 0 0;
+}
+
+.footer-disclaimer {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 28px;
+  padding: 16px 18px;
+  background: linear-gradient(90deg, rgba(255, 215, 0, 0.06), rgba(0, 157, 255, 0.04));
+  border: 1px solid rgba(255, 215, 0, 0.18);
+  border-radius: 8px;
+}
+
+.footer-disclaimer-icon {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(255, 215, 0, 0.12);
+  color: var(--gold);
+  font-size: 13px;
+  line-height: 1;
+}
+
+.footer-disclaimer p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.65;
+  color: rgba(192, 192, 192, 0.85);
+  font-family: var(--font-body);
 }
 
 .footer-bottom {
@@ -1026,6 +1178,14 @@ body {
     gap: 32px;
   }
 
+  .founders-grid {
+    gap: 22px;
+  }
+
+  .founder-card {
+    padding: 30px 26px;
+  }
+
   .profile-grid {
     grid-template-columns: 1fr;
   }
@@ -1112,6 +1272,35 @@ body {
     grid-template-columns: 1fr;
     gap: 28px;
     margin-bottom: 32px;
+  }
+
+  .founders-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    margin-top: 36px;
+  }
+
+  .founder-card {
+    padding: 28px 22px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .founder-meta {
+    align-items: center;
+  }
+
+  .founder-bio {
+    max-width: none;
+  }
+
+  .footer-disclaimer {
+    padding: 14px 14px;
+    gap: 10px;
+  }
+
+  .footer-disclaimer p {
+    font-size: 11px;
   }
 
   .dashboard-stats {

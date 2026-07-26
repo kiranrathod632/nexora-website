@@ -24,9 +24,9 @@ const Navbar = ({ onOpenModal, onLogout }) => {
 
   const navLinks = [
     { to: '/', label: 'Home' },
-    { to: '/', label: 'About' },
+    { to: '/#founders', label: 'About' },
     { to: '/academy', label: 'Academy' },
-    { to: '/', label: 'Plans' },
+    { to: '/#plans', label: 'Plans' },
     ...(isLoggedIn ? [{ to: '/dashboard', label: 'Dashboard' }] : []),
   ];
 

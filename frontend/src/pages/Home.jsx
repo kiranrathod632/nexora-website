@@ -52,6 +52,18 @@ const Home = ({ onOpenModal }) => {
     }
   }, []);
 
+  useEffect(() => {
+    const scrollToHash = () => {
+      const id = window.location.hash.replace('#', '');
+      if (!id) return;
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    };
+    scrollToHash();
+    window.addEventListener('hashchange', scrollToHash);
+    return () => window.removeEventListener('hashchange', scrollToHash);
+  }, []);
+
   const courses = [
     { id: 'c1', title: 'Trading Foundations', level: 'beginner', emoji: '📚', desc: 'Master the basics of stock markets, order types, and fundamental analysis', lessons: 12, hours: 8, price: 1999, origPrice: 4999 },
     { id: 'c2', title: 'Technical Analysis Pro', level: 'intermediate', emoji: '📈', desc: 'Chart patterns, indicators, Fibonacci, Elliot Wave, and live trade setups', lessons: 18, hours: 14, price: 4999, origPrice: 9999 },
@@ -85,6 +97,21 @@ const Home = ({ onOpenModal }) => {
     { icon: '🔐', title: 'Bank-Grade Security', desc: '256-bit encryption, 2-factor authentication, biometric login, and SEBI-regulated platform with segregated client funds.' },
     { icon: '📱', title: 'Multi-Device', desc: 'Seamless experience across web, iOS, and Android. Your positions, orders, and watchlists sync instantly across all devices.' },
     { icon: '🎯', title: 'Smart Orders', desc: 'Market, limit, SL, SL-M, GTT orders with OCO functionality. Advanced bracket orders for automated risk management.' },
+  ];
+
+  const founders = [
+    {
+      name: 'Kiran A. Rathod',
+      role: 'Co-Founder',
+      initials: 'KR',
+      bio: 'Driving NEXORA’s vision for accessible, technology-led investing across India’s markets.',
+    },
+    {
+      name: 'Nayan K. Jadhav',
+      role: 'Co-Founder',
+      initials: 'NJ',
+      bio: 'Building secure, investor-first platforms that bring clarity and confidence to every trade.',
+    },
   ];
 
   return (
@@ -319,63 +346,30 @@ const Home = ({ onOpenModal }) => {
       <hr className="divider" />
 
       {/* Plans */}
-      <section className="section" id="plans">
+     
+
+      {/* Founders */}
+      <hr className="divider" />
+      <section className="section founders-section" id="founders">
         <div className="s-inner">
           <div className="s-head" style={{ textAlign: 'center' }}>
-            <div className="s-tag" style={{ justifyContent: 'center', display: 'flex' }}>Membership Plans</div>
-            <h2 className="s-title" style={{ textAlign: 'center' }}>Choose Your Plan</h2>
-            <p className="s-sub" style={{ margin: '0 auto', textAlign: 'center' }}>Unlock premium features, advanced analytics and priority support with our flexible plans.</p>
+            <div className="s-tag" style={{ justifyContent: 'center', display: 'flex' }}>Leadership</div>
+            <h2 className="s-title" style={{ textAlign: 'center' }}>Meet Our Founders</h2>
+            <p className="s-sub" style={{ margin: '0 auto', textAlign: 'center' }}>
+              The visionaries building India’s next-generation investing platform — focused on trust, technology, and long-term wealth creation.
+            </p>
           </div>
-          <div className="plans-grid">
-            {plans.map((p, i) => (
-              <div key={i} className="plan-card" style={{
-                background: 'var(--bg2)',
-                border: `1px solid ${p.badge ? 'var(--blue)' : 'var(--glass-border)'}`,
-                borderRadius: '8px',
-                padding: '36px',
-                position: 'relative',
-                transition: 'all .3s',
-                background: p.badge ? 'linear-gradient(135deg,rgba(0,157,255,.06),rgba(0,191,255,.02))' : 'var(--bg2)'
-              }}>
-                {p.badge && <div style={{
-                  position: 'absolute',
-                  top: '-12px',
-                  left: '50%',
-                  transform: 'translateX(-50%)',
-                  background: 'var(--blue)',
-                  color: '#fff',
-                  fontFamily: 'var(--font-cond)',
-                  fontSize: '11px',
-                  letterSpacing: '.15em',
-                  padding: '4px 16px',
-                  borderRadius: '20px',
-                  textTransform: 'uppercase'
-                }}>{p.badge}</div>}
-                <div style={{ fontFamily: 'var(--font-head)', fontSize: '22px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.06em', marginBottom: '6px' }}>{p.name}</div>
-                <div style={{ fontFamily: 'var(--font-head)', fontSize: '44px', fontWeight: 700, color: 'var(--blue)', lineHeight: 1, marginBottom: '4px' }}>{p.price}</div>
-                <div style={{ fontSize: '12px', color: 'var(--text-muted)', fontFamily: 'var(--font-cond)', marginBottom: '28px' }}>{p.period}</div>
-                <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '28px' }}>
-                  {p.feats.map((f, j) => <li key={j} style={{ fontSize: '13px', color: 'var(--silver)', display: 'flex', alignItems: 'center', gap: '10px' }}><span style={{ content: "'✓'", color: 'var(--green)', fontWeight: 700, flexShrink: 0 }}>✓</span> {f}</li>)}
-                  {p.no.map((f, j) => <li key={j} style={{ fontSize: '13px', color: 'rgba(255,255,255,.2)', display: 'flex', alignItems: 'center', gap: '10px' }}><span style={{ content: "'✗'", color: 'rgba(255,255,255,.2)', fontWeight: 700, flexShrink: 0 }}>✗</span> {f}</li>)}
-                </ul>
-                <button className={`btn ${p.badge ? 'btn-primary' : 'btn-ghost'}`} style={{ width: '100%' }} onClick={() => onOpenModal('register')}>
-                  {p.name === 'Starter' ? 'Get Started Free' : 'Subscribe Now'}
-                </button>
-              </div>
+          <div className="founders-grid">
+            {founders.map((f) => (
+              <article key={f.name} className="founder-card">
+                <div className="founder-avatar" aria-hidden="true">{f.initials}</div>
+                <div className="founder-meta">
+                  <h3 className="founder-name">{f.name}</h3>
+                  <span className="founder-role">{f.role}</span>
+                  <p className="founder-bio">{f.bio}</p>
+                </div>
+              </article>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="cta-section">
-        <div className="s-inner">
-          <div className="s-tag" style={{ justifyContent: 'center', display: 'flex' }}>Get Started Today</div>
-          <h2 className="s-title" style={{ textAlign: 'center', fontSize: 'clamp(36px,5vw,72px)', textShadow: '0 0 20px rgba(0,157,255,.5)' }}>Build Your Next Era</h2>
-          <p style={{ color: 'var(--silver)', fontSize: '16px', margin: '16px 0 40px' }}>Join 2.4 million traders who trust NEXORA with their financial future.</p>
-          <div className="cta-buttons">
-            <button className="btn btn-primary" onClick={() => onOpenModal('register')} style={{ padding: '14px 36px', fontSize: '15px' }}>Open Free Account</button>
-            <button className="btn btn-ghost" style={{ padding: '14px 36px', fontSize: '15px' }}>Explore Academy</button>
           </div>
         </div>
       </section>
@@ -395,7 +389,7 @@ const Home = ({ onOpenModal }) => {
             </div>
             <div><h4 style={{ fontFamily: 'var(--font-head)', fontSize: '13px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.12em', marginBottom: '18px' }}>Company</h4>
               <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '9px' }}>
-                <li><a style={{ color: 'var(--text-muted)', textDecoration: 'none', fontSize: '12px', cursor: 'pointer' }}>About Us</a></li>
+                <li><a href="#founders" style={{ color: 'var(--text-muted)', textDecoration: 'none', fontSize: '12px', cursor: 'pointer' }}>About Us</a></li>
                 <li><a style={{ color: 'var(--text-muted)', textDecoration: 'none', fontSize: '12px', cursor: 'pointer' }}>Careers</a></li>
                 <li><a style={{ color: 'var(--text-muted)', textDecoration: 'none', fontSize: '12px', cursor: 'pointer' }}>Blog</a></li>
               </ul>
@@ -414,6 +408,12 @@ const Home = ({ onOpenModal }) => {
                 <li><a style={{ color: 'var(--text-muted)', textDecoration: 'none', fontSize: '12px', cursor: 'pointer' }}>Terms of Service</a></li>
               </ul>
             </div>
+          </div>
+          <div className="footer-disclaimer" role="note">
+            <span className="footer-disclaimer-icon" aria-hidden="true">⚠</span>
+            <p>
+              Investments are subject to market risks. Please read all the related documents carefully before investing.
+            </p>
           </div>
           <div className="footer-bottom">
             <div style={{ fontSize: '11px', color: 'var(--text-muted)' }}>© 2025 NEXORA Technologies Pvt. Ltd. All rights reserved. SEBI Reg: INZ000000000</div>
