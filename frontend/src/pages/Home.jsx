@@ -167,11 +167,11 @@ const Home = ({ onOpenModal }) => {
               <button className="btn btn-primary" onClick={() => onOpenModal('register')}>Start Trading Free</button>
               <button className="btn btn-ghost">Explore Features</button>
             </div>
-            <div className="hero-stats">
+            {/* <div className="hero-stats">
               <div><span style={{ fontFamily: 'var(--font-head)', fontSize: '26px', fontWeight: 700, display: 'block' }}>2.4M+</span><span style={{ fontSize: '11px', color: 'var(--text-muted)', letterSpacing: '.1em', textTransform: 'uppercase' }}>Active Traders</span></div>
               <div><span style={{ fontFamily: 'var(--font-head)', fontSize: '26px', fontWeight: 700, display: 'block' }}>₹840Cr+</span><span style={{ fontSize: '11px', color: 'var(--text-muted)', letterSpacing: '.1em', textTransform: 'uppercase' }}>Daily Volume</span></div>
               <div><span style={{ fontFamily: 'var(--font-head)', fontSize: '26px', fontWeight: 700, display: 'block' }}>99.97%</span><span style={{ fontSize: '11px', color: 'var(--text-muted)', letterSpacing: '.1em', textTransform: 'uppercase' }}>Uptime</span></div>
-            </div>
+            </div> */}
           </div>
           <div>
             <div className="glass-card" style={{ animation: 'cardFloat 6s ease-in-out infinite' }}>
@@ -230,7 +230,9 @@ const Home = ({ onOpenModal }) => {
           `}
         </style>
       </section>
-
+<p>
+              Investments are subject to market risks. Please read all the related documents carefully before investing.
+            </p>
       {/* Market Overview */}
       <section className="section" id="markets" style={{ paddingTop: '60px' }}>
         <div className="s-inner">
@@ -287,69 +289,73 @@ const Home = ({ onOpenModal }) => {
       <hr className="divider" />
 
       {/* Academy */}
-      <section className="section" id="academy" style={{ background: 'var(--bg2)' }}>
+      <section className="section academy-coming-soon" id="academy">
         <div className="s-inner">
-          <div className="s-head" style={{ textAlign: 'center' }}>
-            <div className="s-tag" style={{ justifyContent: 'center', display: 'flex' }}>NEXORA Academy</div>
-            <h2 className="s-title" style={{ textAlign: 'center' }}>Master The Markets</h2>
-            <p className="s-sub" style={{ margin: '0 auto', textAlign: 'center' }}>Structured courses from professional fund managers. Learn at your pace and earn certificates.</p>
-          </div>
-          <div className="courses-grid">
-            {courses.slice(0, 3).map((c) => (
-              <div key={c.id} className="course-card" style={{
-                background: 'var(--bg2)',
-                border: '1px solid var(--glass-border)',
-                borderRadius: '6px',
-                overflow: 'hidden',
-                transition: 'all .3s',
-                cursor: 'pointer'
-              }}>
-                <div style={{
-                  height: '150px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontSize: '46px',
-                  borderBottom: '1px solid var(--glass-border)',
-                  position: 'relative',
-                  overflow: 'hidden'
-                }}>
-                  {c.emoji}
-                </div>
-                <div style={{ padding: '18px' }}>
-                  <div style={{
-                    fontFamily: 'var(--font-cond)',
-                    fontSize: '11px',
-                    letterSpacing: '.14em',
-                    textTransform: 'uppercase',
-                    marginBottom: '7px',
-                    color: c.level === 'beginner' ? 'var(--green)' : c.level === 'intermediate' ? 'var(--blue)' : '#ff9800'
-                  }}>● {c.level.charAt(0).toUpperCase() + c.level.slice(1)}</div>
-                  <h3 style={{ fontFamily: 'var(--font-head)', fontSize: '16px', fontWeight: 700, textTransform: 'uppercase', marginBottom: '7px' }}>{c.title}</h3>
-                  <p style={{ fontSize: '12px', color: 'var(--text-muted)', marginBottom: '14px', lineHeight: 1.6 }}>{c.desc}</p>
-                  <div style={{ display: 'flex', gap: '14px', fontSize: '11px', color: 'var(--text-muted)', fontFamily: 'var(--font-cond)' }}>
-                    <span>📖 {c.lessons} Lessons</span>
-                    <span>⏱ {c.hours}h</span>
-                    <span>🎓 Certificate</span>
-                  </div>
-                  <div style={{ fontFamily: 'var(--font-head)', fontSize: '20px', fontWeight: 700, color: 'var(--blue)', marginTop: '12px' }}>
-                    ₹{c.price.toLocaleString('en-IN')}
-                    <span style={{ fontSize: '13px', color: 'var(--text-muted)', textDecoration: 'line-through', marginLeft: '6px' }}>₹{c.origPrice.toLocaleString('en-IN')}</span>
-                  </div>
-                </div>
+          <div className="academy-launch-card">
+            <div className="academy-launch-copy">
+              <div className="academy-status">
+                <span className="academy-status-dot" />
+                NEXORA Academy · In Development
               </div>
-            ))}
+              <h2 className="academy-coming-title">
+                Master the market.<br />
+                <span>Coming Soon.</span>
+              </h2>
+              <p className="academy-coming-text">
+                Structured courses from professional fund managers. Learn at your pace,
+                practise with real-world insights, and earn certificates.
+              </p>
+              <div className="academy-highlights" aria-label="Academy highlights">
+                <span>Expert-led courses</span>
+                <span>Practical strategies</span>
+                <span>Verified certificates</span>
+              </div>
+            </div>
+
+            <div className="academy-visual" aria-hidden="true">
+              <div className="academy-orbit academy-orbit-outer" />
+              <div className="academy-orbit academy-orbit-inner" />
+              <div className="academy-visual-core">
+                <span className="academy-core-icon">↗</span>
+                <strong>ACADEMY</strong>
+                <small>Knowledge compounds</small>
+              </div>
+              <span className="academy-float academy-float-chart">📈</span>
+              <span className="academy-float academy-float-book">📚</span>
+              <span className="academy-float academy-float-award">✦</span>
+            </div>
+          </div>
+
+          <div className="academy-preview">
+            <div className="academy-preview-heading">
+              <span>First look</span>
+              <p>Courses being prepared for launch</p>
+            </div>
+            <div className="academy-preview-grid">
+              {courses.slice(0, 3).map((course, index) => (
+                <article className="academy-preview-card" key={course.id}>
+                  <div className="academy-preview-top">
+                    <span className="academy-preview-number">0{index + 1}</span>
+                    <span className="academy-preview-icon">{course.emoji}</span>
+                  </div>
+                  <div>
+                    <span className="academy-preview-level">{course.level}</span>
+                    <h3>{course.title}</h3>
+                    <p>{course.desc}</p>
+                  </div>
+                  <div className="academy-preview-meta">
+                    <span>{course.lessons} lessons</span>
+                    <span>{course.hours} hours</span>
+                  </div>
+                </article>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       <hr className="divider" />
-
-      {/* Plans */}
-     
-
       {/* Founders */}
-      <hr className="divider" />
       <section className="section founders-section" id="founders">
         <div className="s-inner">
           <div className="s-head" style={{ textAlign: 'center' }}>
@@ -411,9 +417,7 @@ const Home = ({ onOpenModal }) => {
           </div>
           <div className="footer-disclaimer" role="note">
             <span className="footer-disclaimer-icon" aria-hidden="true">⚠</span>
-            <p>
-              Investments are subject to market risks. Please read all the related documents carefully before investing.
-            </p>
+            
           </div>
           <div className="footer-bottom">
             <div style={{ fontSize: '11px', color: 'var(--text-muted)' }}>© 2025 NEXORA Technologies Pvt. Ltd. All rights reserved. SEBI Reg: INZ000000000</div>
