@@ -102,13 +102,13 @@ const Home = ({ onOpenModal }) => {
   const founders = [
     {
       name: 'Kiran A. Rathod',
-      role: 'Co-Founder',
+      role: 'Founder',
       initials: 'KR',
       bio: 'Driving NEXORA’s vision for accessible, technology-led investing across India’s markets.',
     },
     {
       name: 'Nayan K. Jadhav',
-      role: 'Co-Founder',
+      role: 'Founder',
       initials: 'NJ',
       bio: 'Building secure, investor-first platforms that bring clarity and confidence to every trade.',
     },
